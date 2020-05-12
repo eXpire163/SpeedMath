@@ -74,19 +74,37 @@ public class Rechnung : MonoBehaviour
     {
         rechnungsText.text = number1 + " " + sign + " " + number2 + " " + " = ";
     }
+    public string ToDebug() {
+        return number1 + " " + sign + " " + number2 + " " + " = " + result;
+
+    }
 
    
     private void plus()
     {
-        number1 = Random.Range(0, 9);
-        number2 = Random.Range(0, 9);
+        int max = 9;
+        if (Manager.score > 50)
+            max = 20;
+        else if (Manager.score > 100)
+            max = 30;
+        else if (Manager.score > 200)
+            max = 50;
+        number1 = Random.Range(0, max);
+        number2 = Random.Range(0, max);
         result = number1 + number2;
         sign = "+";
     }
 
     private void minus()
     {
-        number1 = Random.Range(1, 20);
+        int max = 20;
+        if (Manager.score > 50)
+            max = 40;
+        else if (Manager.score > 100)
+            max = 70;
+        else if (Manager.score > 200)
+            max = 100;
+        number1 = Random.Range(1, max);
         number2 = Random.Range(0, number1);
         result = number1 - number2;
         sign = "-";
@@ -94,17 +112,28 @@ public class Rechnung : MonoBehaviour
 
     private void mal()
     {
-        number1 = Random.Range(0, 9);
-        number2 = Random.Range(0, 9);
+        int max = 5;
+        if (Manager.score > 100)
+            max = 7;
+        else if (Manager.score > 200)
+            max = 10;
+
+        number1 = Random.Range(0, max);
+        number2 = Random.Range(0, max);
         result = number1 * number2;
         sign = "x";
     }
 
     private void geteilt()
     {
-       
-        number2 = Random.Range(1, 10);
-        result = Random.Range(0, 10);
+        int max = 5;
+        if (Manager.score > 100)
+            max = 7;
+        else if (Manager.score > 200)
+            max = 10;
+
+        number2 = Random.Range(1, max);
+        result = Random.Range(0, max);
 
         number1 = result * number2;
 
@@ -195,7 +224,7 @@ public class Rechnung : MonoBehaviour
 
     IEnumerator Kill() {
         input.DeactivateInputField();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.8f);
         state = State.Dead;
     }
 }

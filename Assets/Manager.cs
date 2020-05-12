@@ -36,12 +36,15 @@ public class Manager : MonoBehaviour
     public static int score = 0;
     public static int lives = 5;
     public static float speed = 2f;
+    public static float speed_start = 2f;
+    public static float speed_increase = 0.03f;
 
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
         lives = 5;
+        speed = speed_start;
         switch (mathType)
         {
             case MathType.PLUSMINUS:
@@ -80,12 +83,13 @@ public class Manager : MonoBehaviour
                 rechClass = rechnung.GetComponent<Rechnung>();
                 rechClass.init(nextMathType(), speed);
 
-                speed += 0.01f;
+                speed += speed_increase;
 
             }
             if (rechClass.state == State.Dead)
             {
                 score += rechClass.typeScroe;
+                Debug.Log(rechClass.ToDebug());
                 Destroy(rechnung);
                 return;
             }
