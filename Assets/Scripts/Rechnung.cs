@@ -75,7 +75,7 @@ public class Rechnung : MonoBehaviour
         rechnungsText.text = number1 + " " + sign + " " + number2 + " " + " = ";
     }
     public string ToDebug() {
-        return number1 + " " + sign + " " + number2 + " " + " = " + result;
+        return number1 + " " + sign + " " + number2 + " " + " = " + input.text;
 
     }
 

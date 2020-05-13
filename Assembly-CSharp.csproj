@@ -62,12 +62,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Board.cs" />
-    <Compile Include="Assets\Manager.cs" />
-    <Compile Include="Assets\Rechnung.cs" />
-    <Compile Include="Assets\ScoreEntry.cs" />
-    <Compile Include="Assets\Settings.cs" />
-    <None Include="Assets\awsconfig.xml" />
+    <Compile Include="Assets\Scripts\Board.cs" />
+    <Compile Include="Assets\Scripts\Manager.cs" />
+    <Compile Include="Assets\Scripts\Rechnung.cs" />
+    <Compile Include="Assets\Scripts\ScoreEntry.cs" />
+    <Compile Include="Assets\Scripts\Settings.cs" />
+    <Compile Include="Assets\Scripts\SkinHelper.cs" />
+    <None Include="Assets\Scripts\awsconfig.xml" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Git/Unity/SpeedMath/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

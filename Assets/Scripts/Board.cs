@@ -16,6 +16,7 @@ public class Board : MonoBehaviour
 
     public Text resultText;
     public InputField usernameText;
+    public Slider sliderLevel;
 
 
     public Text lastscore;
@@ -27,6 +28,9 @@ public class Board : MonoBehaviour
         lastscore.text ="Score: " + PlayerPrefs.GetInt("lastGame");
         highscore.text ="HighScore: " + PlayerPrefs.GetInt("highscore");
         usernameText.text = PlayerPrefs.GetString("user","nobody");
+        sliderLevel.value = PlayerPrefs.GetInt("level", 2);
+
+
         initAWS();
         if (Manager.lives <= 0)
         {
@@ -36,7 +40,8 @@ public class Board : MonoBehaviour
                 User = usernameText.text,
                 score = PlayerPrefs.GetInt("lastGame"),
                 date = DateTime.Now,
-                mathType = Manager.mathType
+                mathType = Manager.mathType,
+                startspeed = Manager.speed_start
             };
             addScore(scoreEntry);
         }
@@ -117,6 +122,7 @@ public class Board : MonoBehaviour
         
         Manager.mathType = Manager.MathType.PLUSMINUS;
         SceneManager.LoadScene("Game");
+        PlayerPrefs.Save();
     }
     public void mediumStart()
     {
@@ -124,6 +130,7 @@ public class Board : MonoBehaviour
             return;
         Manager.mathType = Manager.MathType.MALGETEILT;
         SceneManager.LoadScene("Game");
+        PlayerPrefs.Save();
     }
     public void hardStart()
     {
@@ -132,11 +139,18 @@ public class Board : MonoBehaviour
             return;
         Manager.mathType = Manager.MathType.ALLES;
         SceneManager.LoadScene("Game");
+        PlayerPrefs.Save();
     }
 
     public void showSettings()
     {
        
         SceneManager.LoadScene("Settings");
+    }
+
+    public void setDifficulty(float level) {
+        Manager.speed_start = level;
+        PlayerPrefs.SetInt("level", (int)sliderLevel.value);
+
     }
 }

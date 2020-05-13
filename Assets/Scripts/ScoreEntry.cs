@@ -12,6 +12,8 @@ public class ScoreEntry
     [DynamoDBProperty]
     public int score { get; set; }
     [DynamoDBProperty]
+    public float startspeed { get; set; }
+    [DynamoDBProperty]
     public DateTime date { get; set; }
     [DynamoDBProperty]
     public MathType mathType { get; set; }
