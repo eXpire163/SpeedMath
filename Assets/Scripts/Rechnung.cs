@@ -9,13 +9,14 @@ using Random = UnityEngine.Random;
 public class Rechnung : MonoBehaviour
 {
 
-    public enum State { Unsolved, OK, Fail, Dead }
+    public enum State { Unsolved, OK, Fail, OOT }
 
     public Text rechnungsText;
     public InputField input;
     
     MathType mathType;
    public  State state = State.Unsolved;
+    public bool isAlive = true;
     int number1;
     int number2;
     int result;
@@ -47,11 +48,11 @@ public class Rechnung : MonoBehaviour
             case MathType.MINUS:
                 minus();
                 break;
-            case MathType.MAL:
-                mal();
+            case MathType.MULTIPLY:
+                multiply();
                 break;
-            case MathType.GETEILT:
-                geteilt();
+            case MathType.DIVIDE:
+                divide();
                 break;
             default:
                 plus();
@@ -111,7 +112,7 @@ public class Rechnung : MonoBehaviour
         sign = "-";
     }
 
-    private void mal()
+    private void multiply()
     {
         int max = 5;
         if (Manager.score > 100)
@@ -125,7 +126,7 @@ public class Rechnung : MonoBehaviour
         sign = "x";
     }
 
-    private void geteilt()
+    private void divide()
     {
         int max = 5;
         if (Manager.score > 100)
@@ -163,7 +164,7 @@ public class Rechnung : MonoBehaviour
     private State validateInput()
     {
         if (state != State.Unsolved) {
-            return state; ;
+            return state;
         }
 
         string intxt = input.text;
@@ -226,6 +227,6 @@ public class Rechnung : MonoBehaviour
     IEnumerator Kill() {
         input.DeactivateInputField();
         yield return new WaitForSeconds(0.8f);
-        state = State.Dead;
+        isAlive = false;
     }
 }

@@ -9,7 +9,7 @@ public class Manager : MonoBehaviour
 
     public enum MathType
     {
-        PLUS = 1, MINUS = 2, MAL = 5, GETEILT = 7,
+        PLUS = 1, MINUS = 2, MULTIPLY = 5, DIVIDE = 7,
 
         PLUSMINUS = 10,
         ALLES = 12,
@@ -94,9 +94,12 @@ public class Manager : MonoBehaviour
                 speed += speed_increase;
 
             }
-            if (rechClass.state == State.Dead)
+            if (rechClass.isAlive == false)
             {
-                score += rechClass.typeScroe;
+                if (rechClass.state == State.OK)
+                {
+                    score += rechClass.typeScroe;
+                }
                 Debug.Log(rechClass.ToDebug());
                 Destroy(rechnung);
                 return;
@@ -119,7 +122,7 @@ public class Manager : MonoBehaviour
             case MathType.PLUSMINUS:
                 return UnityEngine.Random.Range(0f, 1f) > 0.5f ? MathType.PLUS : MathType.MINUS;
             case MathType.MALGETEILT:
-                return UnityEngine.Random.Range(0f, 1f) > 0.5f ? MathType.MAL : MathType.GETEILT;
+                return UnityEngine.Random.Range(0f, 1f) > 0.5f ? MathType.MULTIPLY : MathType.DIVIDE;
             default:
                 int range = UnityEngine.Random.Range(0, 3);
                 switch (range)
@@ -129,9 +132,9 @@ public class Manager : MonoBehaviour
                     case 1:
                         return MathType.MINUS;
                     case 2:
-                        return MathType.MAL;
+                        return MathType.MULTIPLY;
                     default:
-                        return MathType.GETEILT;
+                        return MathType.DIVIDE;
 
                 }
 
