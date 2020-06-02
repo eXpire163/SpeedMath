@@ -1,4 +1,5 @@
 ﻿
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,6 +21,8 @@ public class Manager : MonoBehaviour
     
     public Text scoreText;
     public Text livesText;
+    public Text startText;
+    public Image startPanal;
 
 
     public GameObject[] lanes;
@@ -40,7 +43,7 @@ public class Manager : MonoBehaviour
     public static float speed_start = 2f;
     public static float speed_increase = 0.03f;
 
-    float startDelay = 1.5f;
+    float startDelay = 3.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -69,9 +72,14 @@ public class Manager : MonoBehaviour
     {
         if (startDelay >= 0)
         {
+            udpateStartText();
             startDelay -= Time.deltaTime;
             return;
         }
+        else {
+        }
+        startText.enabled = false;
+        startPanal.enabled = false;
         if (lives <= 0)
         {
             SaveScore();
@@ -112,6 +120,27 @@ public class Manager : MonoBehaviour
 
             updateUI();
         }
+    }
+
+    private void udpateStartText()
+    {
+
+        startText.enabled = true;
+        startPanal.enabled = true;
+
+        int restDelay =(int) Math.Floor(startDelay);
+
+        if (restDelay > 0)
+        {
+            startText.text = "" + restDelay;
+        }
+        else {
+            startText.text = "GO";
+        }
+        startText.color = ColorHelper.lightColors[restDelay];
+        startPanal.color = ColorHelper.darkColors[restDelay];
+
+
     }
 
     private MathType nextMathType()

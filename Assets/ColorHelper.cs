@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColorHelper : MonoBehaviour
 {
-
+    // https://flatuicolors.com/palette/us
    public static Color32[] lightColors = new Color32[] {
         new Color32(85, 239, 196,255),
         new Color32(129, 236, 236,255),
