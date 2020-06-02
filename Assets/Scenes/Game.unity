@@ -452,6 +452,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1357779453}
     m_Modifications:
+    - target: {fileID: 15170553530582678, guid: 232f66838d50eed48bfaef90889e8a0e,
+        type: 3}
+      propertyPath: colorID
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5314801285488053932, guid: 232f66838d50eed48bfaef90889e8a0e,
         type: 3}
       propertyPath: m_Name
@@ -518,6 +523,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1357779453}
     m_Modifications:
+    - target: {fileID: 15170553530582678, guid: 232f66838d50eed48bfaef90889e8a0e,
+        type: 3}
+      propertyPath: colorID
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5314801285488053932, guid: 232f66838d50eed48bfaef90889e8a0e,
         type: 3}
       propertyPath: m_Name
@@ -695,6 +705,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1357779453}
     m_Modifications:
+    - target: {fileID: 15170553530582678, guid: 232f66838d50eed48bfaef90889e8a0e,
+        type: 3}
+      propertyPath: colorID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5314801285488053932, guid: 232f66838d50eed48bfaef90889e8a0e,
         type: 3}
       propertyPath: m_Name
@@ -812,6 +827,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1357779453}
     m_Modifications:
+    - target: {fileID: 15170553530582678, guid: 232f66838d50eed48bfaef90889e8a0e,
+        type: 3}
+      propertyPath: colorID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5314801285488053932, guid: 232f66838d50eed48bfaef90889e8a0e,
         type: 3}
       propertyPath: m_Name
@@ -971,6 +991,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1357779453}
     m_Modifications:
+    - target: {fileID: 15170553530582678, guid: 232f66838d50eed48bfaef90889e8a0e,
+        type: 3}
+      propertyPath: colorID
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5314801285488053932, guid: 232f66838d50eed48bfaef90889e8a0e,
         type: 3}
       propertyPath: m_Name
@@ -1229,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: 951717956521208372, guid: 5efc1d7dc69c28540adda5ce0bf823c2,
         type: 3}
       propertyPath: m_Name
-      value: Background2
+      value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 4353382768091261948, guid: 5efc1d7dc69c28540adda5ce0bf823c2,
         type: 3}
@@ -1295,6 +1320,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1357779453}
     m_Modifications:
+    - target: {fileID: 15170553530582678, guid: 232f66838d50eed48bfaef90889e8a0e,
+        type: 3}
+      propertyPath: colorID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5314801285488053932, guid: 232f66838d50eed48bfaef90889e8a0e,
         type: 3}
       propertyPath: m_Name
