@@ -17,7 +17,7 @@ public class Manager : MonoBehaviour
 
     }
 
-    public static MathType mathType = MathType.PLUSMINUS;
+    
     public Text scoreText;
     public Text livesText;
 
@@ -33,15 +33,21 @@ public class Manager : MonoBehaviour
 
     public AudioClip[] songs;
 
+    public static MathType mathType = MathType.PLUSMINUS;
     public static int score = 0;
     public static int lives = 5;
     public static float speed = 2f;
+    public static float speed_start = 2f;
+    public static float speed_increase = 0.03f;
+
+    float startDelay = 1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
         lives = 5;
+        speed = speed_start;
         switch (mathType)
         {
             case MathType.PLUSMINUS:
@@ -61,6 +67,11 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (startDelay >= 0)
+        {
+            startDelay -= Time.deltaTime;
+            return;
+        }
         if (lives <= 0)
         {
             SaveScore();
@@ -80,12 +91,13 @@ public class Manager : MonoBehaviour
                 rechClass = rechnung.GetComponent<Rechnung>();
                 rechClass.init(nextMathType(), speed);
 
-                speed += 0.01f;
+                speed += speed_increase;
 
             }
             if (rechClass.state == State.Dead)
             {
                 score += rechClass.typeScroe;
+                Debug.Log(rechClass.ToDebug());
                 Destroy(rechnung);
                 return;
             }
