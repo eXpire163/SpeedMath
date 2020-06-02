@@ -21,6 +21,7 @@ public class Rechnung : MonoBehaviour
     int result;
     string sign = "+";
     float speed = 0f;
+    public float speedBalance = 20f;
 
     public AudioClip[] soundOK;
     public AudioClip[] soundFail;
@@ -156,7 +157,7 @@ public class Rechnung : MonoBehaviour
 
     private void moveDown()
     {
-        transform.position -=new Vector3 (0, speed, 0);
+        transform.position -=new Vector3 (0, speed * Time.deltaTime * speedBalance, 0);
     }
 
     private State validateInput()
